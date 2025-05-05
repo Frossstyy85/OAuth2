@@ -25,7 +25,8 @@ public class BeanConfig {
                 .csrf(AbstractHttpConfigurer::disable)
 
                 .oauth2Login(login ->
-                        login.defaultSuccessUrl("/profile", true))
+                        login.defaultSuccessUrl("/profile", true)
+                )
 
                 .build();
     }

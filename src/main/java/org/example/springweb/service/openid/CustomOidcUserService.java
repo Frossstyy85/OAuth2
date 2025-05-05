@@ -33,7 +33,7 @@ public class CustomOidcUserService extends OidcUserService {
         String username = oidcUser.getGivenName();
         String avatar = oidcUser.getPicture();
 
-        User user = userRepository.findByProviderAndProviderId(provider, providerId).orElse(
+        User user = userRepository.findByProviderAndProviderId(provider, providerId).orElseGet( () ->
                 userService.saveUser(
                         User.builder()
                                 .username(username)

@@ -33,7 +33,7 @@ public class CustomOAuth2Service extends DefaultOAuth2UserService {
         String username = String.valueOf(attributes.get("login"));
         String avatar = String.valueOf(attributes.get("avatar_url"));
 
-        User user = userRepository.findByProviderAndProviderId(provider, providerId).orElse(
+        User user = userRepository.findByProviderAndProviderId(provider, providerId).orElseGet( () ->
                 userService.saveUser(
                         User.builder()
                                 .username(username)
