@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, sans-serif;
+            background-color: #ffffff;
+            color: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .error-box {
+            max-width: 600px;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .error-code {
+            font-size: 4rem;
+            font-weight: 600;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        .error-message {
+            font-size: 1.4rem;
+            color: rgba(0, 0, 0, 0.9);
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<div class="error-box">
+    <div class="error-code" th:text="${status}">500</div>
+    <div class="error-message" th:text="${error}">Internal Server Error</div>
+</div>
+
+</body>
+</html>

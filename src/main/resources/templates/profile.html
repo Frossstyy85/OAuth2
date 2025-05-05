@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Profile</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            color: #333;
+            padding: 2rem;
+        }
+        a {
+            margin-right: 1rem;
+            text-decoration: none;
+            color: #007bff;
+        }
+        h2 {
+            margin-top: 0.5rem;
+        }
+        .profile-container {
+            margin-top: 2rem;
+        }
+        img {
+            width: 200px;
+            height: auto;
+            border-radius: 8px;
+        }
+        .meta {
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<a th:href="@{/logout}">Logout</a>
+<a th:href="@{/}">Home</a>
+
+<div class="profile-container">
+    <p>Your Profile</p>
+    <h2 th:text="${user.username}">Username</h2>
+    <img th:src="${user.avatar}" alt="Profile Picture">
+    <p class="meta" th:text="'Logged in with ' + ${user.provider}"></p>
+</div>
+
+</body>
+</html>
