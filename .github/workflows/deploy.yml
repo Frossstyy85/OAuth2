@@ -22,9 +22,15 @@ jobs:
       - name: Build JAR (skip tests)
         run: ./mvnw clean package -DskipTests
 
+      - name: Move JAR to root level and List files
+        run: |
+          mv target/*.jar app.jar
+          ls -l
+
       - name: Zip JAR for deployment
         run: |
-          zip -r deploy.zip target/*.jar -x '*.git*'
+          zip -r deploy.zip app.jar -x '*.git*'
+          ls -l deploy.zip
 
       - name: Deploy to Elastic Beanstalk
         uses: einaregilsson/beanstalk-deploy@v22
