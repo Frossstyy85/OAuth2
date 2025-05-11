@@ -24,8 +24,7 @@ jobs:
 
       - name: Zip JAR for deployment
         run: |
-          mvn clean package -DskipTests
-          zip -r deploy.zip target/SpringWeb-0.0.1-SNAPSHOT.jar -x '*.git*'
+          zip -r deploy.zip target/*.jar -x '*.git*'
 
       - name: Deploy to Elastic Beanstalk
         uses: einaregilsson/beanstalk-deploy@v22
